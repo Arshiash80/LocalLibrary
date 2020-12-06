@@ -1,0 +1,24 @@
+extends layout
+
+block content
+    h1= title
+    
+    if error
+        p Error getting !{title}
+        | !{error}
+    else
+        each author in author_list
+            li
+                a(href= author.url) #{author.name} - 
+                if author.lifespan.date_of_birth && author.lifespan.date_of_death
+                    |   Date of birth: 
+                    span.text-success #{author.lifespan.date_of_birth}
+                    |   Date of death: 
+                    span.text-danger #{author.lifespan.date_of_death}
+                else if author.lifespan.date_of_birth
+                    |   Date of birth: 
+                    span.text-success #{author.lifespan.date_of_birth}
+                else 
+                    span.text-success ...
+        else    
+              li There are no authors.
