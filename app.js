@@ -17,7 +17,7 @@ require('dotenv').config({ path: path.join(__dirname, '/configs/.env') })
 
 // Set up mongoose connection
 let mongoose = require('mongoose')
-let mongoDB = process.env.DATABASE_URL
+let mongoDB = process.env.MONGODB_URI || process.env.DEV_DB_URL
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true })
 let db = mongoose.connection
 // __Bind connection to error event (to get notification of connection errors)
