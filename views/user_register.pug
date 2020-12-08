@@ -1,0 +1,28 @@
+extends log_reg_layout
+
+block content
+    h1= title
+
+    hr
+
+    div(class='container')
+        include ./partials/messages.pug
+        br
+        form(action="", method="post")
+            div.form-group
+                label(for="user_name") User name: #[strong(style="color:red;") *]
+                input#user_name.form-control(type="text", name="user_name", placeholder="User name", value=(undefined === user ? '' : user.user_name), required= true)
+            div.form-group
+                label(for="user_email") Email adress: #[strong(style="color:red;") *]
+                input#user_email.form-control(type="email", name="user_email", placeholder="Email adress", value=(undefined === user ? '' : user.user_email), required= true)
+                small#emailHelp.form-text.text-muted We'll never share your email with anyone else.
+            div.form-group
+                label(for="user_password") Password: #[strong(style="color:red;") *]
+                input#user_password.form-control(type="password", name="user_password", placeholder="password", required= true)
+            div.form-group
+                label(for="user_password2") Confirm password: #[strong(style="color:red;") *]
+                input#user_password2.form-control(type="password", name="user_password2", placeholder="Confirm password", required= true)
+
+            button.btn.btn-primary(type='submit') Register
+        br
+        p You already have an account? go to #[a(href="/users/login")(style="font-weight:700;") Login page.]

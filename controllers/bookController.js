@@ -29,7 +29,7 @@ exports.index = function(req, res) {
                 Genre.countDocuments({}, callback)
             }
         }, function(err, results) {
-            res.render('index', { title: 'Local Library Home', error: err, data: results})
+            res.render('index', { title: 'Local Library Home', error: err, data: results, name: req.user.user_name })
             // The data is supplied as key-value pairs, and can be accessed in the template using the key.
         }
     )    
