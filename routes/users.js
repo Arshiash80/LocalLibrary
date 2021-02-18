@@ -97,7 +97,7 @@ router.post('/register', [
               new_user.save(function(err) {
                 if (err) { next(err) }
                 // Successful - Redirect to login form.
-                req.flash('success_msg', 'You are registration complete successfully! You can now login.')
+                req.flash('success_msg', 'Youre registration complete successfully! You can now login.')
                 res.redirect('/users/login')
               })
             }
